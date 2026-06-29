@@ -1,0 +1,75 @@
+/* ./app/globals.css atau ./globals.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   PREMIUM CUSTOM STYLING BY SMARTWASTE
+   ========================================================================== */
+
+/* Efek pendaran premium interaktif pada card */
+.premium-glow-card {
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-glow-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 2.5rem; /* Menyesuaikan rounded-[2.5rem] */
+  padding: 1.5px; /* Ketebalan border glow */
+  background: linear-gradient(
+    135deg, 
+    rgba(99, 102, 241, 0.2) 0%, 
+    rgba(255, 255, 255, 0.03) 40%, 
+    rgba(255, 255, 255, 0.03) 60%, 
+    rgba(168, 85, 247, 0.2) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+
+/* Mengubah warna pendaran saat form di-hover agar lebih hidup */
+.premium-glow-card:hover::before {
+  background: linear-gradient(
+    135deg, 
+    rgba(99, 102, 241, 0.4) 0%, 
+    rgba(255, 255, 255, 0.05) 40%, 
+    rgba(255, 255, 255, 0.05) 60%, 
+    rgba(168, 85, 247, 0.4) 100%
+  );
+}
+
+/* Animasi mengambang super lembut untuk background mesh */
+@keyframes softFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+.animate-mesh-slow {
+  animation: softFloat 12s ease-in-out infinite;
+}
+
+/* Custom scrollbar minimalis jika diperlukan di masa depan */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0f19;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
